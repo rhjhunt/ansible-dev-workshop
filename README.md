@@ -25,8 +25,8 @@ The following is an example of an _execution-environment.yml_ file.
 version: 1
 
 build_arg_defaults:
-  EE_BASE_IMAGE: registry.redhat.io/ansible-automation-platform-20-early-access/ee-minimal-rhel8:3.0
-  EE_BUILDER_IMAGE: registry.redhat.io/ansible-automation-platform-20-early-access/ansible-builder-rhel8:3.0
+  EE_BASE_IMAGE: registry.redhat.io/ansible-automation-platform-22/ee-minimal-rhel8:latest
+  EE_BUILDER_IMAGE: registry.redhat.io/ansible-automation-platform-22/ansible-builder-rhel8:latest
 
 ansible_config: ansible.cfg
 
