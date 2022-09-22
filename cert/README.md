@@ -11,6 +11,25 @@ to run this playbook.
 
 ```console
  ansible-navigator --eei localhost/basic-ee:latest --pp missing -m stdout run create_ca_cert.yml
+ WARNING]: provided hosts list is empty, only localhost is available. Note that
+the implicit localhost does not match 'all'
+
+PLAY [Generate a self-signed CA] ***********************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [localhost]
+
+TASK [Create CA root key] ******************************************************
+changed: [localhost]
+
+TASK [Create CA CSR for self-signed certificate] *******************************
+changed: [localhost]
+
+TASK [Create CA self-signed certifice from CSR] ********************************
+changed: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=4    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ```
 
 This will generate 3 files in your current working directory.
