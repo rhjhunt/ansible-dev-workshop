@@ -5,25 +5,12 @@ In this example we will be adding a custom CA certificate to the execution envir
 You can add your own CA if you have one or you can use the provided __create_ca_cert.yml__
 playbook if you would like.
 
-If you use the playbook you will need to install the _community.crypto_
-collection. You can do that by running the following.
+Due to the requirements from the playbook for the _community.crypto_ collection and
+the `cryptography` python module use the execution environment from the basic build
+to run this playbook.
 
 ```console
-ansible-galaxy collection install community.crypto
-```
-
-This collection has a requirement of the `cryptography` python module. It is available
-on Red Hat Enterprise Linux 8 as the package `python3-cryptography`. You can install
-it as follows.
-
-```console
-sudo dnf -y install python3-cryptography
-```
-
-You are now prepared to run the playbook.
-
-```console
-ansible-playbook create_ca_cert.yml
+ ansible-navigator --eei localhost/basic-ee:latest --pp missing -m stdout run create_ca_cert.yml
 ```
 
 This will generate 3 files in your current working directory.
