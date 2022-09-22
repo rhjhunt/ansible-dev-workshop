@@ -1,0 +1,43 @@
+---
+- name: Generate a self-signed CA
+  hosts: localhost
+  connection: local
+  tasks:
+
+    - name: Create CA root key
+      community.crypto.openssl_privatekey:
+        path: "{{ ansible_env.PWD }}/ca.key.pem"
+        cipher: auto
+        select_crypto_backend: auto
+        passphrase: changeme
+        mode: '0400'
+        state: present
+
+    - name: Create CA CSR for self-signed certificate
+      community.crypto.openssl_csr:
+        path: "{{ ansible_env.PWD }}/ca.cert.csr"
+        privatekey_path: "{{ ansible_env.PWD }}/ca.key.pem"
+        privatekey_passphrase: changeme
+        common_name: Certificate Authority
+        use_common_name_for_san: false
+        basic_constraints:
+          - 'CA:TRUE'
+        basic_constraints_critical: true
+        key_usage:
+          - keyCertSign
+        key_usage_critical: true
+        country_name: 'US'
+        email_address: 'root@localhost'
+        state_or_province_name: 'NC'
+        organization_name: 'Test'
+        digest: sha256
+
+    - name: Create CA self-signed certifice from CSR
+      community.crypto.x509_certificate:
+        path: "{{ ansible_env.PWD }}/ca.cert.pem"
+        csr_path: "{{ ansible_env.PWD }}/ca.cert.csr"
+        privatekey_path: "{{ ansible_env.PWD }}/ca.key.pem"
+        privatekey_passphrase: changeme
+        provider: selfsigned
+        mode: '0444'
+        state: present
