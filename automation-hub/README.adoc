@@ -1,3 +1,0 @@
-= This is a test of AsciiDoc
-
-This is the same test
