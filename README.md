@@ -36,14 +36,14 @@ dependencies:
   system: bindep.txt
 ```
 
- - The _EE_BASE_IMAGE_ parameter declares the execution environment container image
+- The _EE_BASE_IMAGE_ parameter declares the execution environment container image
    to use as the starting point.
- - The _EE_BUILDER_IMAGE_ parameter declares the container image that incluedes the
+- The _EE_BUILDER_IMAGE_ parameter declares the container image that incluedes the
    tools that will be used during the build process to construct the container image.
- - The optional _ansible.cfg_ parameter specifies the Ansible configuration file.
- - The _galaxy_ parameter specifies the file that lists the collections to install.
- - The _python_ parameter specifies the file that lists the Python packages to install.
- - The _system_ parameter specifies the file that lists the RPM packeages to install.
+- The optional _ansible.cfg_ parameter specifies the Ansible configuration file.
+- The _galaxy_ parameter specifies the file that lists the collections to install.
+- The _python_ parameter specifies the file that lists the Python packages to install.
+- The _system_ parameter specifies the file that lists the RPM packeages to install.
 
 Example of the _requirements.yml_ file:
 

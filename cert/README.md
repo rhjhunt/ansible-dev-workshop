@@ -29,7 +29,7 @@ TASK [Create CA self-signed certifice from CSR] ********************************
 changed: [localhost]
 
 PLAY RECAP *********************************************************************
-localhost                  : ok=4    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+localhost: ok=4    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ```
 
 This will generate 3 files in your current working directory.
@@ -48,7 +48,7 @@ ansible-builder create
 cp ../ca.cert.pem context/
 ```
 
-You can now build the execution environment which will include the CA certificate 
+You can now build the execution environment which will include the CA certificate
 that was genereated.
 
 ```console

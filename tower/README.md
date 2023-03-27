@@ -1,11 +1,11 @@
 # Migrating a Custom Python Virtual Environment to a Execution Environment
 
-If you are using custom python virtual environments in Red Hat Ansible Tower you 
-will want to migrate those to an execution environment that can be used in Ansible 
+If you are using custom python virtual environments in Red Hat Ansible Tower you
+will want to migrate those to an execution environment that can be used in Ansible
 Automation Platform.
 
-From your Red Hat Ansible Tower server you can list your custom virtual environemnts 
-and export the infomation on the python modules installed. Which you can then use 
+From your Red Hat Ansible Tower server you can list your custom virtual environemnts
+and export the infomation on the python modules installed. Which you can then use
 in the _requirements.txt_ file in building the new execution environment.
 
 ```console
@@ -13,7 +13,7 @@ awx-manage list_custom_venvs
 awx-manage export_custom_venv /var/lib/awx/venv/customvenv/
 ```
 
-This will return output that looks like the following, copy this content edit the 
+This will return output such as the following, copy this content edit the
 _requirements.txt_ file to paste the information then save and exit the file.
 
 ```console
