@@ -158,3 +158,4 @@ ansible-navigator.log
 ca.cert.pem
 ca.cert.csr
 ca.key.pem
+*artifact*.json
