@@ -3,7 +3,7 @@
 In this example we will be adding a custom CA certificate to the execution environment.
 
 You can add your own CA if you have one or you can use the provided __create_ca_cert.yml__
-playbook if you would like.
+playbook.
 
 Due to the requirements from the playbook for the _community.crypto_ collection and
 the `cryptography` python module use the execution environment from the basic build
@@ -39,7 +39,7 @@ ca.cert.csr  ca.cert.pem  ca.key.pem
 ```
 
 Change into the _ee_ directory and create the _context_ directory with the `ansible-builder`
-command. Then copy the _ca.cert.pem_ file into the _context_ directory. So it can
+command. Then copy the _ca.cert.pem_ file into the _context_ directory. It then can
 be included in the execution environment during build time.
 
 ```console
