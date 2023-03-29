@@ -1,0 +1,29 @@
+---
+- name: Playbook to create EE
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  collections:
+    - infra.ee_utilities
+  vars:
+    ee_builder_dir_clean: true
+    ee_image_push: false
+    ee_registry_username: "{{ vault_username }}"
+    ee_registry_password: "{{ vault_password }}"
+    ee_create_ansible_config: false
+    ee_list:
+      - name: collection_ee
+        python:
+          - pytz
+          - awxkit
+        collections:
+          - name: awx.awx
+          - name: infra.controller_configuration
+          - name: infra.ah_configuration
+        prepend:
+          - RUN whoami
+          - RUN cat /etc/os-release
+        append:
+          - RUN echo This is a post-install command!
+  roles:
+    - infra.ee_utilities.ee_builder
