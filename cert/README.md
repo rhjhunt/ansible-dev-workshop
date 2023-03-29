@@ -10,7 +10,7 @@ the `cryptography` python module use the execution environment from the basic bu
 to run this playbook.
 
 ```console
- ansible-navigator --eei localhost/basic-ee:latest --pp missing -m stdout run create_ca_cert.yml
+ ansible-playbook create_ca_cert.yml
  WARNING]: provided hosts list is empty, only localhost is available. Note that
 the implicit localhost does not match 'all'
 
