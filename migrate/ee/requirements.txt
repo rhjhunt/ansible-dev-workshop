@@ -1,7 +1,6 @@
 ansible==3.3.0
 ansible-base==2.10.14
 ansible-tower-cli==3.3.9
-awxkit==3.8.5
 certifi==2021.10.8
 cffi==1.14.6
 charset-normalizer==2.0.12
