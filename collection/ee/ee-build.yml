@@ -3,8 +3,6 @@
   hosts: localhost
   connection: local
   gather_facts: false
-  collections:
-    - infra.ee_utilities
   vars:
     ee_builder_dir_clean: true
     ee_image_push: false
@@ -27,3 +25,4 @@
           - RUN echo This is a post-install command!
   roles:
     - infra.ee_utilities.ee_builder
+...

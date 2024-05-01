@@ -1,4 +1,4 @@
-# Adding Content to an Execution Environment
+# Adding content to an execution environment
 
 In this example we will be adding a custom CA certificate to the execution environment.
 
@@ -38,18 +38,13 @@ This will generate 3 files in your current working directory.
 ca.cert.csr  ca.cert.pem  ca.key.pem
 ```
 
-Change into the _ee_ directory and create the _context_ directory with the `ansible-builder`
-command. Then copy the _ca.cert.pem_ file into the _context_ directory. It then can
-be included in the execution environment during build time.
-
 ```console
 cd ee/
 ansible-builder create
 cp ../ca.cert.pem context/
 ```
 
-You can now build the execution environment which will include the CA certificate
-that was genereated.
+You can now build the execution environment and include the CA certificate.
 
 ```console
 ansible-builder build -t cert-ee

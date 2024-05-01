@@ -6,28 +6,17 @@ dependencies:
     collections:
       - name: community.crypto
       - name: community.general
-  python:
-    - awxkit
-    - cryptography
+  python: requirements.txt
   system:
-    - krb5-workstation [platform:rpm]
-    - crypto-policies-scripts [platform:rpm]
+    - gcc [platform:rpm]
 
 images:
   base_image:
     name: registry.redhat.io/ansible-automation-platform-24/ee-minimal-rhel9:latest
 
-additional_build_files:
-  - dest: certs
-    src: ../ca.cert.pem
-
 additional_build_steps:
   append_base:
     - RUN pip3 install --upgrade pip setuptools
-  append_final:
-    - COPY _build/certs/ca.cert.pem /etc/pki/ca-trust/source/anchors/ca.cert.pem
-    - RUN update-ca-trust
-    - RUN update-crypto-policies --set DEFAULT:AD-SUPPORT
 
 options:
   package_manager_path: /usr/bin/microdnf

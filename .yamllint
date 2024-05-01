@@ -1,0 +1,25 @@
+---
+extends: default
+
+ignore: |
+  .github/
+
+rules:
+  comments:
+    min-spaces-from-content: 1
+  line-length: disable
+  colons:
+    max-spaces-before: 0
+    max-spaces-after: -1
+  document-end:
+    present: true
+  indentation:
+    level: error
+    indent-sequences: true
+  truthy:
+    level: error
+    allowed-values:
+      - 'true'
+      - 'false'
+      - 'on'
+...

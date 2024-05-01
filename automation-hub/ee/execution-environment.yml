@@ -1,15 +1,33 @@
 ---
-version: 1
-
-build_arg_defaults:
-  EE_BASE_IMAGE: registry.redhat.io/ansible-automation-platform-23/ee-supported-rhel8:latest
-
-ansible_config: ansible.cfg
+version: 3
 
 dependencies:
-  galaxy: requirements.yml
-  python: requirements.txt
+  galaxy:
+    collections:
+      - name: ansible.controller
+      - name: community.general
+      - name: infra.controller_configuration
+      - name: containers.podman
+  python:
+    - awxkit
+
+images:
+  base_image:
+    name: registry.redhat.io/ansible-automation-platform-24/ee-minimal-rhel9:latest
 
 additional_build_steps:
-  prepend: |
-    RUN pip3 install --upgrade pip setuptools
+  append_base:
+    - RUN pip3 install --upgrade pip setuptools
+  prepend_galaxy:
+    - ENV ANSIBLE_GALAXY_SERVER_LIST="rh_published, rh_validated, galaxy"
+    - ENV ANSIBLE_GALAXY_SERVER_GALAXY_URL=https://galaxy.ansible.com
+    - ENV ANSIBLE_GALAXY_SERVER_RH_PUBLISHED_URL=https://console.redhat.com/api/automation-hub/content/published/
+    - ENV ANSIBLE_GALAXY_SERVER_RH_PUBLISHED_AUTH_URL=https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token
+    - ARG ANSIBLE_GALAXY_SERVER_RH_PUBLISHED_TOKEN
+    - ENV ANSIBLE_GALAXY_SERVER_RH_VALIDATED_URL=https://console.redhat.com/api/automation-hub/content/published/
+    - ENV ANSIBLE_GALAXY_SERVER_RH_VALIDATED_AUTH_URL=https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token
+    - ARG ANSIBLE_GALAXY_SERVER_RH_VALIDATED_TOKEN
+
+options:
+  package_manager_path: /usr/bin/microdnf
+...
