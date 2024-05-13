@@ -24,6 +24,7 @@ jobs:
     uses:  rhjhunt/ansible-dev-workshop/.github/workflows/deploy.yml@main
     with:
       EE_FOLDER_NAME: 'basic/ee'
+      EE_IMAGE_NAME: 'basic'
       EE_IMAGE_TAG: 'latest'
       QUAY_USER: 'rhjhunt'
     secrets:

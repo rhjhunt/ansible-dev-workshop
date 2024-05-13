@@ -16,6 +16,11 @@ on:
         default: 'latest'
         required: true
         type: string
+      EE_IMAGE_NAME:
+        description: 'name of the EE image'
+        default: 'basic'
+        required: true
+        type: string
       QUAY_USER:
         description: 'this is used during the image push to quay'
         required: true
@@ -67,7 +72,7 @@ jobs:
         working-directory: ${{ inputs.EE_FOLDER_NAME }}
         run: |
           ansible-builder build \
-          --tag=${{ inputs.EE_FOLDER_NAME }}:${{ inputs.EE_IMAGE_TAG }}
+          --tag=${{ inputs.EE_IMAGE_NAME }}:${{ inputs.EE_IMAGE_TAG }}
 
       - name: Push To quay.io
         id: push-to-quay
