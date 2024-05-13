@@ -13,5 +13,5 @@ page. Click the button 'Load token', this will generate a token for you.
 You can build the execution environment with the following command.
 
 ```console
-ansible-builder build -t automationhub-ee
+ansible-builder build --prune-images -t automationhub-ee
 ```

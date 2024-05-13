@@ -38,14 +38,8 @@ This will generate 3 files in your current working directory.
 ca.cert.csr  ca.cert.pem  ca.key.pem
 ```
 
-```console
-cd ee/
-ansible-builder create
-cp ../ca.cert.pem context/
-```
-
 You can now build the execution environment and include the CA certificate.
 
 ```console
-ansible-builder build -t cert-ee
+ansible-builder build --prune-images -t cert-ee
 ```

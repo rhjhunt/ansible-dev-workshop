@@ -39,5 +39,5 @@ urllib3==1.26.12
 You are now ready to build your execution environment.
 
 ```console
-ansible-builder build -t tower-ee
+ansible-builder build --prune-images -t tower-ee
 ```
